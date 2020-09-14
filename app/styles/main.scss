@@ -507,6 +507,7 @@ input[type="submit"],
 .comment-reply-link {
   background-color: red;
 }
+
 @import './interpolate';
 @import './timeline/slick';
 
@@ -593,5 +594,19 @@ input[type="submit"],
       }
 
     }
+  }
+}
+
+
+.product-gallery {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto 30px;
+
+  &:last-child {
+    margin-bottom: 0px;
   }
 }
