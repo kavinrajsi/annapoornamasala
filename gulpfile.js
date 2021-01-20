@@ -153,7 +153,10 @@ const build = series(
     fonts,
     extras
   ),
-  measureSize
+  criticalCss,
+  serviceWorker,
+  measureSize,
+  compressZip
 );
 
 function startAppServer() {
