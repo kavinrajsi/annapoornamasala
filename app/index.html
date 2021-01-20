@@ -9,6 +9,19 @@
     />
     <title>Annapoorna</title>
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="preload" href="images/cook-along-annapooran.png" as="image" />
+    <link rel="preload" href="scripts/vendor.js" as="script" />
+    <link rel="preload" href="scripts/formValidation.js" as="script" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Annapoorna" />
+    <meta name="apple-mobile-web-app-title" content="Annapoorna" />
+    <meta name="msapplication-starturl" content="/index.html" />
+    <meta name="theme-color" content="#C41425" />
+    <meta name="msapplication-navbutton-color" content="#C41425" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#C41425" />
+
     <!-- Place favicon.ico in the root directory -->
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Signika:wght@400;500&display=swap"
@@ -22,8 +35,41 @@
     <!-- build:js scripts/modernizr.js -->
     <script src="scripts/modernizr.js"></script>
     <!-- endbuild -->
+    <noscript>
+      <div class="noscriptmsg">
+        For full functionality of this site it is necessary to enable
+        JavaScript. Here are the
+        <a href="https://www.enable-javascript.com/">
+          instructions how to enable JavaScript in your web browser</a
+        >.
+      </div>
+    </noscript>
+     <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-xxxxxxx");
+    </script>
+    <!-- End Google Tag Manager -->
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-xxxxxxx"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden;"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!--[if IE]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
@@ -31,6 +77,7 @@
         your experience.
       </p>
     <![endif]-->
+
 
     <main class="site-main">
       <nav>
@@ -218,7 +265,7 @@
             </svg>
           </a>
         </div>
-        <button class="nav-menu-button">
+        <button class="nav-menu-button menu--icon trigger-menu">
           <span></span>
         </button>
         <ul class="nav-menu-content">
@@ -235,7 +282,7 @@
         <div class="header--text">
           <div class="header--text_title">
             Cook Along in <br />
-            Kongu Nadu Style
+            Kongu Style
           </div>
           <div class="header--text_content">
             Take part in Annapoorna's virtual cook-along and let's get-together
@@ -264,11 +311,14 @@
             </ul>
           </div>
           <div class="section_form">
-            <form action="" class="form-action">
+            <form id="form" class="form form-action" method="post"
+            autocomplete="off"
+            name="myForm">
               <fieldset>
                 <div class="control">
                   <label for="name">Name</label>
-                  <input id="name" name="name" type="text" />
+                  <input id="name" name="name" type="text" autocomplete="off"
+                required  placeholder="John Doe" />
                 </div>
                 <div class="control">
                   <label for="dob">Date of Birth</label>
@@ -276,11 +326,17 @@
                 </div>
                 <div class="control">
                   <label for="email">Email</label>
-                  <input id="email" name="email" type="email" />
+                  <input id="email" name="email" type="email" autocomplete="off"
+                required
+                placeholder="johndoe@domain.com" />
                 </div>
                 <div class="control">
                   <label for="phoneNumber">Phone Number</label>
-                  <input id="phoneNumber" name="phoneNumber" type="tel" />
+                  <input id="phoneNumber" name="phoneNumber" type="tel" placeholder="Phone Number"  autocomplete="off"
+                required
+                minlength="10"
+                maxlength="10"
+                pattern="^\d{10}$" />
                 </div>
               </fieldset>
               <p class="from-fieldset-message">
@@ -289,23 +345,31 @@
               <fieldset>
                 <div class="control">
                   <label for="address1">Address 1</label>
-                  <input id="address1" name="address1" type="text" />
+                  <input id="address1" name="address1" type="text" placeholder=""
+                autocomplete="off"
+                required />
                 </div>
                 <div class="control">
                   <label for="address2">Address 2</label>
-                  <input id="address2" name="address2" type="text" />
+                  <input id="address2" name="address2" type="text" placeholder=""
+                autocomplete="off"
+                required />
                 </div>
                 <div class="control">
                   <label for="city">City</label>
-                  <input id="city" name="city" type="text" />
+                  <input id="city" name="city" type="text" placeholder=""
+                autocomplete="off"
+                required />
                 </div>
                 <div class="control">
                   <label for="pincode">Pincode</label>
-                  <input id="pincode" name="pincode" type="text" />
+                  <input id="pincode" name="pincode" type="text" placeholder=""
+                autocomplete="off"
+                required />
                 </div>
               </fieldset>
               <div class="full-control masala-yet">
-                <input type="checkbox" name="masala-yet" id="masala-yet" />
+                <input type="checkbox" name="masala-yet" id="masala-yet"                     value="masala" />
                 <label for="masala-yet">
                 Have you tried cooking with Annapoorna Masalas before?
                 </label>
@@ -662,5 +726,51 @@
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
+    <!-- build:js scripts/formValidation.js-->
+    <script src="scripts/jquery.validate.js"></script>
+    <script src="scripts/additional-methods.js"></script>
+    <!-- endbuild -->
+    <script>
+      $(".form").validate({
+        rules: {
+          name: {
+            required: true,
+          },
+          email: {
+            required: true,
+            email: true,
+          },
+          phoneNumber: {
+            required: true,
+            number: true,
+          },
+          address1: {
+            required: true,
+          },
+          address2: {
+            required: true,
+          },
+          city: {
+            required: true,
+          },
+          pincode: {
+            required: true,
+          },
+        },
+        submitHandler: function (form) {
+          $.ajax({
+            type: "POST",
+            url: "./tryme.php",
+            data: $(form).serialize(),
+            success: function (data) {
+              $(form).append("<div id='message'></div>");
+              $("#message").html(data);
+              $("#form")[0].reset();
+            },
+          });
+          return false; // required to block normal submit since you used ajax
+        },
+      });
+    </script>
   </body>
 </html>

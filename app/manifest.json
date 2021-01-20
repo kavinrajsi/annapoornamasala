@@ -1,0 +1,9 @@
+{
+  "name": "Annapoornamasala",
+  "short_name": "Annapoornamasala",
+  "theme_color": "#c41425",
+  "background_color": "#C41425",
+  "display": "browser",
+  "scope": "/",
+  "start_url": "/"
+}
