@@ -443,7 +443,7 @@ p {
 }
 
 input:focus,
-input:hover{
+input:hover {
   outline: 0;
 }
 
@@ -533,16 +533,18 @@ $lg: 1024px;
       display: none;
     }
 
-    span {
+    .buger-menu-icon {
       margin: 0 auto;
       display: block;
       width: 28px;
       position: relative;
       height: 2px;
       background-color: $color-jet;
+      cursor: pointer;
 
       &:before,
       &:after {
+        cursor: pointer;
         content: "";
         display: block;
         width: 100%;
@@ -554,12 +556,31 @@ $lg: 1024px;
       }
 
       &:before {
-        top: 8px;
+        top: 10px;
       }
 
       &:after {
-        bottom: 8px;
+        top: -10px;
+
       }
+
+      &.active {
+        height: 0px;
+
+        &:before,
+        &:after {
+          top: 0px;
+        }
+
+        &:before {
+          transform: rotate(135deg);
+        }
+
+        &:after {
+          transform: rotate(-135deg);
+        }
+      }
+
     }
   }
 
@@ -567,6 +588,7 @@ $lg: 1024px;
     text-align: left;
     display: block;
     overflow: hidden;
+    flex: 1 0;
 
     a {
       max-width: 90px;
@@ -584,9 +606,12 @@ $lg: 1024px;
 
   .nav-menu-content {
     display: none;
+    height: 0;
+    transition: all .5s;
 
     @media (min-width: 568px) {
       display: flex;
+      height: auto;
     }
 
     .menu-item {
@@ -635,6 +660,20 @@ $lg: 1024px;
       }
     }
   }
+}
+
+#navbar.menu-drawer-open .nav-menu-content {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: absolute;
+  left: 0;
+  top: 60px;
+  background-color: $color-white;
 }
 
 .button {

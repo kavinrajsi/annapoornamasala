@@ -26,66 +26,23 @@ if ('loading' in HTMLImageElement.prototype) {
   document.body.appendChild(script);
 }
 
+$(document).ready(function () {
 
-// menu transition and action on click
-const
-  body = document.body,
-  headerMenu = gsap.timeline({
-    paused: true
-  }),
-  headerMenu2 = gsap.timeline({
-    paused: true
+  // menu transition and action on click
+  /**
+   * Show menu in mobile
+   *
+   */
+  var $body = $('body'),
+    $menuLeft = $('#navbar'),
+    $burgermenu = $('#nav-burgermenu'),
+    $burgermenuIcon = $('.buger-menu-icon');
+
+  $burgermenu.click(function () {
+    $burgermenuIcon.toggleClass('active');
+    $menuLeft.toggleClass('menu-drawer-open');
+    $body.toggleClass('menu-open');
   });
-
-headerMenu.to('.menu--item__content', 0.3, {
-  top: 0,
-  visibility: 'visible',
-  height: 'auto',
-  x: 0,
-  y: 0,
-  opacity: 1,
-  ease: Expo.Power3,
-});
-
-headerMenu.staggerFrom(
-  '.menu--item__content-link',
-  0.3, {
-    y: -30,
-    opacity: 0,
-    ease: Expo.easeIn,
-  },
-  '-=0.35'
-);
-
-headerMenu.staggerFrom(
-  '.menu--secondary',
-  0.3, {
-    y: -30,
-    opacity: 0,
-    ease: Expo.easeIn,
-  },
-  '+=0.35'
-);
-
-headerMenu.staggerFrom(
-  '.lead-me-out__link li',
-  0.3, {
-    y: 30,
-    opacity: 0,
-    ease: Expo.easeIn,
-  }, {
-    y: 0,
-    opacity: 1,
-    ease: Expo.easeIn,
-  }
-);
-
-headerMenu.reverse();
-$(document).on('click', '.trigger-menu', function () {
-  // alert('0');
-  body.classList.toggle('menu--open');
-  headerMenu.reversed(!headerMenu.reversed());
-});
 
   // click move
   $('#participate-button').on('click', function (e) {
@@ -95,3 +52,4 @@ $(document).on('click', '.trigger-menu', function () {
       scrollTop: ($(target).offset().top)
     }, 2000);
   });
+});
