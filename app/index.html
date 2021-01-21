@@ -58,6 +58,11 @@
     <link
       rel="preload"
       as="script"
+      href="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
+    />
+    <link
+      rel="preload"
+      as="script"
       href="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
     />
 
@@ -127,6 +132,16 @@
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
         a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<!-- Push notification -->
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "064d6b2e-5a93-41ab-a335-69299b04eaff",
+    });
+  });
 </script>
   </head>
   <body>

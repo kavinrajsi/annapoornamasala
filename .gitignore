@@ -4,6 +4,7 @@ bower_components
 
 # compiled output
 /dist
+/dist.zip
 /.tmp
 
 # System Files
