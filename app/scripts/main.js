@@ -3,7 +3,7 @@ console.log('\'Allo \'Allo!');
 // service worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
-    .register('./sw.js')
+    .register('/sw.js')
     .then(serviceWorker => {
       console.log('Service Worker registered: ', serviceWorker);
     })

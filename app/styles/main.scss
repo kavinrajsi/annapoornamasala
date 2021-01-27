@@ -292,6 +292,7 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow-x: hidden;
 }
 
 body {
@@ -305,6 +306,7 @@ body {
   line-height: 1.5;
   text-align: left;
   background-color: #fff;
+  overflow-x: hidden;
 }
 
 ::-moz-selection {
@@ -830,6 +832,12 @@ $lg: 1024px;
       flex: 0 0 50%;
       max-width: 50%;
     }
+
+    >div.section_content {
+      flex: 0 0 45%;
+      max-width: 45%;
+      padding-right: 5%;
+    }
   }
 
   @media (min-width: 1200px) {
@@ -907,7 +915,7 @@ $lg: 1024px;
     }
 
     .control {
-      padding-bottom: 16px;
+      margin-bottom: 26px;
       width: 100%;
 
       @media (min-width: 576px) {
@@ -951,7 +959,7 @@ $lg: 1024px;
 
       label {
         display: block;
-        padding-bottom: 8px;
+        padding-bottom: 0px;
         font-family: $font-second;
         font-style: normal;
         font-weight: normal;
@@ -1012,9 +1020,49 @@ $lg: 1024px;
   }
 }
 
+.how-it-works form.form-action .control input.error {
+  border-color: $color-lava;
+}
+
+.how-it-works form.form-action .control label.error {
+  position: absolute;
+  display: inline-block;
+  color: $color-lava;
+}
+
+
+
 .footer {
   &--content {
+    position: relative;
+    z-index: 1;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -2px;
+      bottom: 0;
+      left: -9999em;
+      right: -9999em;
+      z-index: -1;
+      height: 2px;
+      background-color: $color-lava;
+    }
+
+    @media (min-width: 1200px) {
+      max-width: 1140px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     &_made-by {
+      @media (min-width: 1200px) {
+        max-width: 1140px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
       border-top-width: 1px;
       border-top-style: solid;
       border-color: #ffffff;
@@ -1035,6 +1083,7 @@ $lg: 1024px;
 
     display: flex;
     justify-content: space-around;
+    justify-content: space-between;
     margin-top: 7rem;
     border-top: 2px solid $color-lava;
     flex-direction: column;
@@ -1101,9 +1150,11 @@ $lg: 1024px;
       }
 
       a {
+        margin-right: 8px;
+
         svg {
-          width: 40px;
-          height: 40px;
+          width: 28px;
+          height: 28px;
         }
       }
     }

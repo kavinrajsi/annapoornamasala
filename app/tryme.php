@@ -13,14 +13,15 @@ if ( $_SERVER['REQUEST_METHOD']=='GET' && realpath(__FILE__) == realpath( $_SERV
 }
 
 // the message
-$services = ($_POST['service']);
 $name = ($_POST['name']);
+$dob = ($_POST['dob']);
 $email = ($_POST['email']);
 $mobile = ($_POST['phoneNumber']);
 $address1 = ($_POST['address1']);
 $address2 = ($_POST['address2']);
 $city = ($_POST['city']);
 $pincode = ($_POST['pincode']);
+$tryMe = ($_POST['masala-yet']);
 
  $to = "sikavinraj@live.com";
 
@@ -33,6 +34,8 @@ $msg .= "<h2 style='font-weight:bold;border-bottom:1px dotted #ccc;'>Enquire for
 $msg .= "<table width='600' border='0' align='left' cellpadding='0' cellspacing='0' bgcolor='#FFF' style='font-weight: 700;font-size: 12px;color: #666;font-family:Arial, Helvetica, sans-serif; background-color:#FFFFFF;'>";
 $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-bottom:none; border-right:none; padding:10px;'>Name</td><td width='250' style='border: 1px solid #CCC; border-bottom:none; padding:10px;'> " . $name . "</td></tr>";
 $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-bottom:none; border-right:none; padding:10px;'>Email</td><td width='250' style='border: 1px solid #CCC; border-bottom:none; padding:10px;'> " . $email . "</td></tr>";
+$msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-bottom:none; border-right:none; padding:10px;'>Annapoorna Masalas before ?</td><td width='250' style='border: 1px solid #CCC; border-bottom:none; padding:10px;'> " . $tryMe . "</td></tr>";
+$msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-bottom:none; border-right:none; padding:10px;'>Date of Birth</td><td width='250' style='border: 1px solid #CCC; border-bottom:none; padding:10px;'> " . $dob . "</td></tr>";
 $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; padding:10px;'>Phone Number</td><td width='250' style='border: 1px solid #CCC; padding:10px;'><a href='tel:".$mobile."'>" . $mobile . "</a></td></tr>";
 $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; padding:10px;'>Address 1</td><td width='250' style='border: 1px solid #CCC; padding:10px;'>" .  $address1  . "</td></tr>";
 $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; padding:10px;'>Address 2</td><td width='250' style='border: 1px solid #CCC; padding:10px;'>" . $address2 . "</td></tr>";

@@ -102,6 +102,9 @@ function html() {
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
     .pipe($.if(/\.css$/, $.postcss([cssnano({safe: true, autoprefixer: false})])))
+    .pipe($.if(/\.js$/, $.rev()))
+    .pipe($.if(/\.css$/, $.rev()))
+    .pipe($.revRewrite())
     .pipe($.if(/\.html$/, $.htmlmin({
       collapseWhitespace: true,
       minifyCSS: true,
