@@ -9,6 +9,9 @@ const del = require('del');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const { argv } = require('yargs');
+const critical = require('critical').stream;
+const workboxBuild = require('workbox-build');
+
 
 const $ = gulpLoadPlugins();
 const server = browserSync.create();
@@ -99,6 +102,9 @@ function html() {
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
     .pipe($.if(/\.css$/, $.postcss([cssnano({safe: true, autoprefixer: false})])))
+    .pipe($.if(/\.js$/, $.rev()))
+    .pipe($.if(/\.css$/, $.rev()))
+    .pipe($.revRewrite())
     .pipe($.if(/\.html$/, $.htmlmin({
       collapseWhitespace: true,
       minifyCSS: true,
@@ -133,7 +139,7 @@ function extras() {
 };
 
 function clean() {
-  return del(['.tmp', 'dist'])
+  return del(['.tmp', 'dist', 'dist.zip'])
 }
 
 function measureSize() {
@@ -150,7 +156,10 @@ const build = series(
     fonts,
     extras
   ),
-  measureSize
+  criticalCss,
+  serviceWorker,
+  measureSize,
+  compressZip
 );
 
 function startAppServer() {
@@ -208,6 +217,52 @@ function startDistServer() {
     }
   });
 }
+
+
+function criticalCss() {
+  return src('dist/*.html')
+    .pipe(critical({
+        inline: true,
+        minify: true,
+        ignore: ["font-face"],
+        base: "dist/",
+        dimensions: [{
+            height: 200,
+            width: 500,
+          },
+          {
+            height: 900,
+            width: 1300,
+          },
+        ],
+      }),
+      (err, output) => {
+        if (err) {
+          console.error(err);
+        } else if (output) {
+          console.log("Generated critical CSS");
+        }
+      }
+    )
+    .pipe(dest('dist'));
+}
+
+function serviceWorker() {
+  return workboxBuild.generateSW({
+    globDirectory: 'dist',
+    globPatterns: [
+      '**/*.{html,json,js,css}',
+    ],
+    swDest: 'dist/sw.js',
+  });
+}
+
+function compressZip() {
+  return src('dist/**/*')
+    .pipe($.zip('dist.zip'))
+    .pipe(dest('./'));
+}
+
 
 let serve;
 if (isDev) {
