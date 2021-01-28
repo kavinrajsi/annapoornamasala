@@ -53,6 +53,13 @@ $(document).ready(function () {
     }, 2000);
   });
 
+  // track the user
+  var referrer = document.referrer;
+  console.log('footer: ' + referrer);
+  jQuery(function ($) {
+    $('#findDataURL').val(referrer);
+  });
+
   // lang switch
   $('[lang="tn"]').hide();
   $('[lang="en"]').show();

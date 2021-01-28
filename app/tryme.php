@@ -22,6 +22,7 @@ $address2 = ($_POST['address2']);
 $city = ($_POST['city']);
 $pincode = ($_POST['pincode']);
 $tryMe = ($_POST['masala-yet']);
+$findDataURL = ($_POST['findDataURL']);
 
  $to = "sikavinraj@live.com";
 
@@ -41,6 +42,8 @@ $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; 
 $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; padding:10px;'>Address 2</td><td width='250' style='border: 1px solid #CCC; padding:10px;'>" . $address2 . "</td></tr>";
 $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; padding:10px;'>City</td><td width='250' style='border: 1px solid #CCC; padding:10px;'>" . $city . "</td></tr>";
 $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; padding:10px;'>Pin Code</td><td width='250' style='border: 1px solid #CCC; padding:10px;'>" . $pincode . "</td></tr>";
+$msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; padding:10px;'>City</td><td width='250' style='border: 1px solid #CCC; padding:10px;'>" . $city . "</td></tr>";
+$msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; padding:10px;'>From URL</td><td width='250' style='border: 1px solid #CCC; padding:10px;'>" . $findDataURL . "</td></tr>";
 $msg .= "</table>";
 $msg .= "</body></html>";
 

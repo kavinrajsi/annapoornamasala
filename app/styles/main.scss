@@ -1132,8 +1132,8 @@ body {
     }
 
     &_copyright {
-      font-size: 1.1rem;
-      line-height: 1.5;
+      font-size: 1rem;
+      line-height: 1.6;
     }
 
     &-logo {
@@ -1213,4 +1213,10 @@ body {
       }
     }
   }
+}
+
+
+p.success{
+  color: green;
+  font-size: 1rem;
 }

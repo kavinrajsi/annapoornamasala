@@ -119,9 +119,6 @@
     <link rel="preload" href="scripts/vendor.js" as="script" />
     <link rel="preload" href="scripts/formValidation.js" as="script" />
     <link rel="manifest" href="manifest.json" />
-
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta
       name="application-name"
       content="Annapoorna Cook Alogn with Chef Nala"
@@ -130,6 +127,8 @@
       name="apple-mobile-web-app-title"
       content="Annapoorna Cook Alogn with Chef Nala"
     />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="msapplication-starturl" content="index.html" />
     <meta name="theme-color" content="#C41425" />
     <meta name="msapplication-navbutton-color" content="#C41425" />
@@ -537,6 +536,7 @@
               autocomplete="off"
               name="myForm"
             >
+              <input type="hidden" name="findDataURL" id="findDataURL">
               <fieldset>
                 <div class="control">
                   <label lang="en" for="name">Name</label>
@@ -863,21 +863,20 @@
             <a href="https://www.annapoornamasala.com/product/pure-spices/"
               >Pure Spices</a
             >
-            <a href="https://www.annapoornamasala.com/product/ready-to-cook/"
-              >Ready to Cook</a
-            >
             <a href="https://www.annapoornamasala.com/product/blended-spices/"
               >Blended Spices</a
+            >
+            <a href="https://www.annapoornamasala.com/product/regional-blends/"
+              >Regional Blends</a
             >
             <a
               href="https://www.annapoornamasala.com/product/regional-blends-tamil-nadu/"
               >Regional Blends (Tamil Nadu)</a
             >
             <a href="https://www.annapoornamasala.com/product/meal-mixes/"
-              >Meal Mixes</a
-            >
-            <a href="https://www.annapoornamasala.com/product/regional-blends/"
-              >Regional Blends</a
+              >Meal Mixes</a>
+            <a href="https://www.annapoornamasala.com/product/ready-to-cook/"
+              >Ready to Cook</a
             >
           </nav>
         </div>
