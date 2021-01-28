@@ -24,8 +24,7 @@ $pincode = ($_POST['pincode']);
 $tryMe = ($_POST['masala-yet']);
 $findDataURL = ($_POST['findDataURL']);
 
- $to = "sikavinraj@live.com";
-
+$to = "sikavinraj@live.com";
 
 $subject = "[annapoornamasala.com] form Enquire by ". $name." for $service";
 
@@ -47,7 +46,7 @@ $msg .= " <tr><td width='250' style='border: 1px solid #CCC; border-right:none; 
 $msg .= "</table>";
 $msg .= "</body></html>";
 
-
+/* Mail storage */
 $header = "From:sikavinraj@gmail.com\r\n";
 $header .= "MIME-Version: 1.0\r\n";
 $header .= "Content-type: text/html\r\n";
@@ -59,3 +58,28 @@ if( $retval == true ) {
 }else {
   print "<p class='error'>Problem in Sending Mail</p>";
 }
+
+/* Data base storage */
+$servername = "127.0.0.1";
+$username = "u2jrxhkirbxbt";
+$password = "7?F12<gl31,j";
+$dbname = "dbnlqmeiub37kt";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "INSERT INTO `cook-with-nala-kongu-style` (`name`, `dob`, `email`, `phone`, `addressLine1`, `addressLine2`, `city`, `pincode`, `triedMasala`, `findDataURL`) VALUES ('$name', '$dob', '$email', '$mobile', '$address1', '$address2', '$city', '$pincode', '$tryMe', '$findDataURL')";
+
+
+if ($conn->query($sql) === TRUE) {
+  echo ":)";
+} else {
+  echo "::";
+  //echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
