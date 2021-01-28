@@ -1220,3 +1220,14 @@ p.success{
   color: green;
   font-size: 1rem;
 }
+
+
+.lastDate-important{
+  color: $color-lava;
+  display: block;
+  font-family: $font-second;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: -12px;
+  margin-bottom: 12px;
+}
