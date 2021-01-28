@@ -52,4 +52,21 @@ $(document).ready(function () {
       scrollTop: ($(target).offset().top)
     }, 2000);
   });
+
+  // lang switch
+  $('[lang="tn"]').hide();
+  $('[lang="en"]').show();
+
+  $('#switch-lang').click(function () {
+    console.log($('#switch-lang').val());
+    if ($('#switch-lang').val() === 'tn'){
+      $('[lang="tn"]').show();
+      $('[lang="en"]').hide();
+    }
+    if ($('#switch-lang').val() === 'en') {
+      $('[lang="en"]').show();
+      $('[lang="tn"]').hide();
+    }
+  });
+
 });
