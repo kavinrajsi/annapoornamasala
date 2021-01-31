@@ -153,7 +153,6 @@ select:focus {
 
 /* Box Sizing Reset
 -----------------------------------------------*/
-
 /* All of our custom controls should be what we expect them to be */
 input,
 select,
@@ -187,7 +186,6 @@ select {
 
 /* Text Inputs
 -----------------------------------------------*/
-
 input[type=date],
 input[type=datetime],
 input[type=datetime-local],
@@ -205,7 +203,6 @@ input[type=week] {}
 
 /* Button Controls
 -----------------------------------------------*/
-
 input[type=checkbox],
 input[type=radio] {
   width: 24px;
@@ -214,7 +211,6 @@ input[type=radio] {
 
 /* File Uploads
 -----------------------------------------------*/
-
 input[type=file] {
   position: absolute;
   opacity: 0;
@@ -222,7 +218,6 @@ input[type=file] {
 
 /* Search Input
 -----------------------------------------------*/
-
 /* Make webkit render the search input like a normal text field */
 input[type=search] {
   -webkit-appearance: textfield;
@@ -236,7 +231,6 @@ input[type=search] {
 
 /* Buttons
 -----------------------------------------------*/
-
 button,
 input[type="reset"],
 input[type="button"],
@@ -260,33 +254,30 @@ input[type="submit"] {
 
 /* Textarea
 -----------------------------------------------*/
-
 textarea {
   /* Move the label to the top */
   vertical-align: top;
-
   /* Turn off scroll bars in IE unless needed */
   overflow: auto;
 }
 
 .noscriptmsg,
 .browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
+  background: #C41425;
   color: #fff;
-  padding: 0.2em 0;
+  padding: 10px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
+  z-index: 2000;
 }
 
 $color-white: #fff;
 $color-black: #000;
 $color-jet: #333;
 $color-lava: #C41425;
-
 $font-primary : 'Signika',
 sans-serif;
 $font-second : 'Open Sans',
@@ -295,7 +286,6 @@ sans-serif;
 $sm: 480px;
 $md: 600px;
 $lg: 1024px;
-
 
 *,
 *::before,
@@ -504,7 +494,6 @@ input:hover {
 
 body {
   padding-top: 72px;
-
 }
 
 .site-main nav {
@@ -572,7 +561,6 @@ body {
 
       &:after {
         top: -10px;
-
       }
 
       &.active {
@@ -591,7 +579,6 @@ body {
           transform: rotate(-135deg);
         }
       }
-
     }
   }
 
@@ -606,6 +593,7 @@ body {
       position: absolute;
       top: 0;
       max-width: 130px;
+
       @media (min-width: 768px) {
         max-width: 180px;
       }
@@ -696,7 +684,6 @@ body {
           content: none;
         }
       }
-
     }
   }
 }
@@ -754,7 +741,6 @@ body {
   // @media (min-width: 576px) {
   //   max-width: 540px;
   // }
-
   @media (min-width: 768px) {
     // max-width: 720px;
     flex-direction: row-reverse;
@@ -768,7 +754,6 @@ body {
   // @media (min-width: 992px) {
   //   max-width: 960px;
   // }
-
   @media (min-width: 1200px) {
     max-width: 1140px;
   }
@@ -791,7 +776,6 @@ body {
       display: flex;
       align-items: center;
       letter-spacing: 0.2px;
-
       color: $color-black;
       margin-bottom: 40px;
       margin-bottom: 1rem;
@@ -836,11 +820,9 @@ body {
   }
 }
 
-
 // body * {
 //   outline: 1px solid blueviolet;
 // }
-
 .how-it-works {
   width: 100%;
   padding-right: 15px;
@@ -851,7 +833,6 @@ body {
   // @media (min-width: 576px) {
   //   max-width: 540px;
   // }
-
   @media (min-width: 768px) {
 
     // max-width: 720px;
@@ -859,7 +840,6 @@ body {
       max-width: 720px;
       margin: 0 auto;
     }
-
   }
 
   @media (min-width: 992px) {
@@ -906,7 +886,6 @@ body {
       font-family: $font-second;
       font-style: normal;
       font-weight: normal;
-
       letter-spacing: 0.5px;
       color: $color-jet;
 
@@ -936,9 +915,54 @@ body {
     }
   }
 
-
   .section_form {
     margin: 0 auto;
+
+    .form-action-icon {
+      display: block;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      text-align: center;
+
+      .path {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+
+        &.circle {
+          -webkit-animation: dash 0.9s ease-in-out;
+          animation: dash 0.9s ease-in-out;
+        }
+
+        &.line {
+          stroke-dashoffset: 1000;
+          -webkit-animation: dash 0.9s 0.35s ease-in-out forwards;
+          animation: dash 0.9s 0.35s ease-in-out forwards;
+        }
+
+        &.check {
+          stroke-dashoffset: -100;
+          -webkit-animation: dash-check 0.9s 0.35s ease-in-out forwards;
+          animation: dash-check 0.9s 0.35s ease-in-out forwards;
+        }
+      }
+    }
+
+    .form-action-icon+.error,
+    .form-action-icon+.success {
+      margin-top: 14px;
+      font-family: $font-second;
+      text-align: center;
+      color: green;
+      font-size: 1.3rem;
+    }
+
+    .center-center {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 
   .form-action {
@@ -1066,8 +1090,6 @@ body {
   display: inline-block;
   color: $color-lava;
 }
-
-
 
 .footer {
   &--content {
@@ -1215,14 +1237,47 @@ body {
   }
 }
 
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
 
-p.success{
-  color: green;
-  font-size: 1rem;
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
 
-.lastDate-important{
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
+
+@keyframes dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
+
+.lastDate-important {
   color: $color-lava;
   display: block;
   font-family: $font-second;
