@@ -1059,7 +1059,7 @@
             url: "./tryme.php",
             data: $(form).serialize(),
             success: function (data) {
-              $(form).append("<div id='message'></div>");
+              $(".section_form").append("<div id='message'></div>");
               $("#message").html(data);
               $("#form").hide();
             },
